@@ -29,6 +29,8 @@ jobs:
       inputs:
       - name: repo
         path: .
+      params:
+        CONTEXT: build
       outputs:
       - name: image
       run:
