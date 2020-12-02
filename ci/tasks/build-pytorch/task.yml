@@ -4,7 +4,7 @@ resources:
   icon: github
   source:
     uri: https://github.com/dzinsouhpe/pytorch.git
-    branch: master
+    branch: main
 
 - name: image
   type: registry-image
