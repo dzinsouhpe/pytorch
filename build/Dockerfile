@@ -8,6 +8,8 @@ RUN apt update && apt install curl -y && cd /tmp/ && \
 
 RUN /opt/miniconda/bin/conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -y
 
+RUN /opt/miniconda/bin/conda install jupyterlab -c conda-forge -y
+
 COPY ./kubedirector/ /tmp/
 RUN cd /tmp/ && tar czf appconfig.tgz appconfig/ && \
     mkdir /opt/configscripts && \
