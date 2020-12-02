@@ -1,0 +1,38 @@
+resources:
+- name: repo
+  type: git
+  icon: github
+  source:
+    uri: https://github.com/dzinsouhpe/pytorch.git
+    branch: master
+
+- name: image
+  type: registry-image
+  icon: docker
+  source:
+    repository: ((image-repo-name))/pytorch
+    username: ((registry-username))
+    password: ((registry-password))
+
+jobs:
+- name: build-and-push
+  plan:
+  - get: repo
+  - task: build-task-image
+    privileged: true
+    config:
+      platform: linux
+      image_resource:
+        type: registry-image
+        source:
+          repository: vito/oci-build-task
+      inputs:
+      - name: repo
+        path: .
+      outputs:
+      - name: image
+      run:
+        path: build
+  - put: image
+    params:
+      image: image/image.tar
