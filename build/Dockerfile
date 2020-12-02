@@ -6,7 +6,7 @@ RUN apt update && apt install curl -y && cd /tmp/ && \
     bash /tmp/miniconda.sh -b -p /opt/miniconda && \
     rm -rf /tmp/miniconda.sh
 
-RUN /opt/miniconda/bin/conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch
+RUN /opt/miniconda/bin/conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -y
 
 COPY ./kubedirector/ /tmp/
 RUN cd /tmp/ && tar czf appconfig.tgz appconfig/ && \
