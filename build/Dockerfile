@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1-runtime-ubuntu20.04
+FROM nvidia/cuda:11.0-runtime-ubuntu20.04
 LABEL maintainer="dietrich.zinsou@hpe.com"
 
 RUN apt update && apt install curl -y && cd /tmp/ && \

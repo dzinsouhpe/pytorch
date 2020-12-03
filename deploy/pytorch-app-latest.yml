@@ -1,0 +1,33 @@
+apiVersion: kubedirector.hpe.com/v1beta1
+kind: KubeDirectorApp
+metadata:
+  name: pytorch17cuda11
+spec:
+  label:
+    name: PyTorch 1.7 - CUDA 11
+    description: PyTorch 1.7 on CUDA 11
+  distroID: dzinsouhpe/pytorch17cuda11
+  version: latest
+  configSchemaVersion: 7
+  defaultConfigPackage:
+    packageURL: file:///opt/configscripts/appconfig.tgz
+  defaultImageRepoTag: dzinsouhpe/pytorch:latest
+  services:
+  - id: jupyter
+    label:
+      name: Jupyter notebook
+    endpoint:
+      port: 8888
+      urlScheme: http
+      isDashboard: true
+  roles:
+  - id: jupyter
+    cardinality: "1+"
+  config:
+    selectedRoles:
+    - jupyter
+    roleServices:
+    - roleID: jupyter
+      serviceIDs:
+      - jupyter
+  systemdRequired: false
