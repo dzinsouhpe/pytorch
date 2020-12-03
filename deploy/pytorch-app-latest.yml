@@ -26,7 +26,7 @@ spec:
     minResources:
       nvidia.com/gpu: "1"
   config:
-    selecStedRoles:
+    selectedRoles:
     - jupyter
     roleServices:
     - roleID: jupyter
