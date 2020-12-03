@@ -23,8 +23,10 @@ spec:
   roles:
   - id: jupyter
     cardinality: "1+"
+    minResources:
+      nvidia.com/gpu: "1"
   config:
-    selectedRoles:
+    selecStedRoles:
     - jupyter
     roleServices:
     - roleID: jupyter
