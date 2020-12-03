@@ -7,9 +7,9 @@ RUN apt-get update && apt-get install curl -y --no-install-recommends && cd /tmp
     rm -rf /tmp/miniconda.sh && \
     rm -rf /var/lib/apt/lists/*
 
-RUN /opt/miniconda/bin/conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -y
-
-RUN /opt/miniconda/bin/conda install jupyterlab -c conda-forge -y
+RUN /opt/miniconda/bin/conda create -y --name py2 python=2.7
+COPY requirements.txt /tmp/requirements.txt
+RUN /opt/miniconda/bin/conda install -y -c conda-forge -c pytorch --file /tmp/requirements.txt
 
 COPY ./kubedirector/ /tmp/
 RUN cd /tmp/ && tar czf appconfig.tgz appconfig/ && \
