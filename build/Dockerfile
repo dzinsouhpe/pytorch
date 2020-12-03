@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install curl -y --no-install-recommends && cd /tmp
     rm -rf /tmp/miniconda.sh && \
     rm -rf /var/lib/apt/lists/*
 
-RUN /opt/miniconda/bin/conda install pytorch torchvision torchaudio -c pytorch -y
+RUN /opt/miniconda/bin/conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch -y
 
 RUN /opt/miniconda/bin/conda install jupyterlab -c conda-forge -y
 
