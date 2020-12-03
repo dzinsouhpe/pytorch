@@ -17,4 +17,6 @@ RUN cd /tmp/ && tar czf appconfig.tgz appconfig/ && \
     cp appconfig.tgz /opt/configscripts/appconfig.tgz && \
     rm -rf appconfig*
 
+ENV PATH=$PATH:/opt/miniconda/bin/
+
 CMD ["sleep", "infinity"]
