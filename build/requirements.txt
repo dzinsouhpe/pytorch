@@ -1,5 +1,5 @@
 pytorch
 torchvision
 torchaudio
-cudatoolkit=11.0
+cudatoolkit
 jupyterlab
